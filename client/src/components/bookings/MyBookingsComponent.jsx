@@ -64,6 +64,13 @@ const MyBookingsComponent = () => {
       setloading(false);
     }
   }
+  if (mybookings.length === 0) {
+    return (
+      <h3 className="text-primary w-full text-center text-3xl font-thin py-2 h-screen flex justify-center items-center">
+        No Bookings Found for this User
+      </h3>
+    );
+  }
 
   return (
     <>

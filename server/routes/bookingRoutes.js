@@ -125,3 +125,20 @@ router.put("/updateBookingStatus/:id", async (req, res) => {
   }
 });
 module.exports = router;
+
+/* 
+
+const methods = [
+  "post /bookRoom",
+  "get /getBookingsById/:id",
+  "post /cancelbooking",
+  "get /getallbookings",
+  "delete /deleteBooking/:id",
+  "put /updateBookingStatus/:id"
+];
+
+router.get("/methods", (req, res) => {
+  res.send(methods);
+});
+
+*/

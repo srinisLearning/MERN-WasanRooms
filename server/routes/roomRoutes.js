@@ -138,3 +138,18 @@ router.put("/updateRoom/:id", async (req, res) => {
 });
 
 module.exports = router;
+
+/* 
+router.get("/", (req, res) => {
+  res.json({
+    routes: [
+      { method: "GET", path: "/getAllRooms" },
+      { method: "GET", path: "/getRoomById/:id" },
+      { method: "POST", path: "/addRoom" },
+      { method: "DELETE", path: "/deleteRoom/:id" },
+      { method: "PUT", path: "/updateRoom/:id" },
+    ],
+  });
+});
+
+*/

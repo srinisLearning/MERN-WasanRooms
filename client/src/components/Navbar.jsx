@@ -22,12 +22,12 @@ const Navbar = () => {
         <div className="flex flex-row">
           {user ? (
             <>
-              <div className="px-4 py-2 font-semibold text-green-800">
+              <div className="px-4 py-2 mr-3 font-semibold text-violet-800">
                 {" "}
-                {user.name.toUpperCase()}
+                Welcome, {user.name.toUpperCase()}
               </div>
-              <div className="px-4 py-2">
-                {user.isAdmin && <a href="/admin">ADMIN</a>}
+              <div className="px-4 py-2 text-stone-950">
+                {user.isAdmin && <a href="/admin/rooms">ADMIN PAGE</a>}
               </div>
               <div className="px-4 py-2">
                 <a href="/mybookings">MY BOOKINGS</a>
