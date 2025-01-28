@@ -9,6 +9,17 @@ const AdminPage = () => {
       window.location.href = "/home";
     }
   }); */
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  useEffect(() => {
+    if (!user) {
+      window.location.href = "/login";
+    }
+  }, []);
+  useEffect(() => {
+    if (!user.isAdmin) {
+      window.location.href = "/home";
+    }
+  }, []);
   return (
     <>
       <h3 className="text-primary   w-full text-center text-3xl font-thin py-2">

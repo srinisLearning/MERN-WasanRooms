@@ -33,7 +33,7 @@ router.post("/login", async (req, res) => {
       };
       return res.send(loggedInUser);
     } else {
-      console.log("Invalid Credentials");
+      //  console.log("Invalid Credentials");
       return res.status(400).json({ message: "Invalid Credentials" });
     }
   } catch (error) {

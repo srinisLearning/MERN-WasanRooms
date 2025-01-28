@@ -23,6 +23,17 @@ const AdminBookingsPage = () => {
 
   const [nameSearch, setNameSearch] = useState("");
   const [citySearch, setCitySearch] = useState("");
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  useEffect(() => {
+    if (!user) {
+      window.location.href = "/login";
+    }
+  }, []);
+  useEffect(() => {
+    if (!user.isAdmin) {
+      window.location.href = "/home";
+    }
+  }, []);
 
   useEffect(() => {
     const fetchBookings = async () => {

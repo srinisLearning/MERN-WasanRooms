@@ -17,6 +17,18 @@ const AdminUserPage = () => {
   const [phoneSearch, setPhoneSearch] = useState("");
   const [emailSearch, setEmailSearch] = useState("");
 
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  useEffect(() => {
+    if (!user) {
+      window.location.href = "/login";
+    }
+  }, []);
+  useEffect(() => {
+    if (!user.isAdmin) {
+      window.location.href = "/home";
+    }
+  }, []);
+
   useEffect(() => {
     const fetchAllUsers = async () => {
       try {

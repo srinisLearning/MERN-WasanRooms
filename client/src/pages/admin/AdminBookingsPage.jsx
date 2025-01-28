@@ -15,6 +15,18 @@ const AdminBookingsPage = () => {
 
   const [userNameSearch, setUserNameSearch] = useState("");
   const [roomNameSearch, setRoomNameSearch] = useState("");
+
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  useEffect(() => {
+    if (!user) {
+      window.location.href = "/login";
+    }
+  }, []);
+  useEffect(() => {
+    if (!user.isAdmin) {
+      window.location.href = "/home";
+    }
+  }, []);
   useEffect(() => {
     const fetchBookings = async () => {
       try {

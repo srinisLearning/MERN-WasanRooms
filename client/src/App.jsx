@@ -12,7 +12,7 @@ import AdminUserPage from "./pages/admin/AdminUserPage";
 import AdminRoomPage from "./pages/admin/AdminRoomPage";
 import AdminBookingsPage from "./pages/admin/AdminBookingsPage";
 import ProfilePage from "./pages/ProfilePage";
-import FileUploadComponent from "./components/FileUploadComponent";
+
 //import "dotenv/config";
 //BASE_URL = process.env.REACT_APP_API_URL;
 //axios.defaults.baseURL = BASE_URL;
@@ -36,7 +36,6 @@ function App() {
         <Route path="/admin/rooms" element={<AdminRoomPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<h1>Not Found</h1>} />
-        <Route path="/fileupload" element={<FileUploadComponent />} />
       </Routes>
 
       <footer className="bg-primary text-white text-center p-4 h-25 w-full">

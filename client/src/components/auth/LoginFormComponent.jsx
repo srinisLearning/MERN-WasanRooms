@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ErrorComponent from "../utils/ErrorComponent";
 import LoadingComponent from "../utils/LoadingComponent";
+import SWAL from "sweetalert2";
 
 const LoginFormComponent = () => {
   const [user, setUser] = useState({
@@ -37,12 +38,14 @@ const LoginFormComponent = () => {
         window.location.href = "/home";
       } catch (error) {
         console.log(error);
+        SWAL.fire("Error", "Invalid Credentials", "error");
         setLoading(false);
         setError(true);
       }
     } else {
       console.log("Pls enter all the fields");
       setError(true);
+      SWAL.fire("Error", "Please enter all the fields", "error");
     }
   };
 
@@ -51,7 +54,6 @@ const LoginFormComponent = () => {
   return (
     <>
       {loading && <LoadingComponent />}
-      {error && <ErrorComponent error=" Invalid Credentials Login Failed" />}
 
       <form className="mt-8 space-y-6">
         <div>
