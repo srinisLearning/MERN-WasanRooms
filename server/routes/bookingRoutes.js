@@ -64,7 +64,10 @@ router.get("/getBookingsById/:id", async (req, res) => {
   const userid = req.params.id;
   //console.log(userid);
   try {
-    const bookings = await Booking.find({ userid });
+    const bookings = await Booking.find({ userid }).sort({
+      status: 1,
+      createdAt: -1,
+    });
     res.send(bookings);
   } catch (error) {
     res.status(400).send("No Bookings Found");
@@ -88,10 +91,8 @@ router.post("/cancelbooking", async (req, res) => {
 
 router.get("/getallbookings", async (req, res) => {
   try {
-    const bookings = await Booking.find({}).sort(
-      { status: -1 },
-      { createdAt: -1 }
-    );
+    const bookings = await Booking.find({}).sort({ status: 1, createdAt: -1 });
+
     res.send(bookings);
   } catch (error) {
     return res.status(400).json({ message: error });

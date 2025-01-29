@@ -4,11 +4,6 @@ import NavbarAdmin from "../../components/NavbarAdmin";
 //import User from "../../../../server/models/userModel";
 
 const AdminPage = () => {
-  /*   useEffect(() => {
-    if (User.isAdmin === false) {
-      window.location.href = "/home";
-    }
-  }); */
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   useEffect(() => {
     if (!user) {

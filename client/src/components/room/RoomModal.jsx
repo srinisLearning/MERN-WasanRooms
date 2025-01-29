@@ -38,7 +38,7 @@ const RoomModal = ({ show, onClose, room }) => {
             </p>
             <p>
               <b className="font-extralight">Check Out Time: </b>
-              {room.checkoutTime}
+              {room.checkOutTime}
             </p>
             <hr className="my-2" />
             <b className="font-semibold">Room Rates</b>
