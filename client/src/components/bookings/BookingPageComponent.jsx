@@ -26,8 +26,8 @@ const BookingPageComponent = ({ room }) => {
     additionalOccupancyCost = additionalOccupancy * basicCost * 0.3;
   }
 
-  let totalAmountPerDay = basicCost * costFactor + additionalOccupancyCost;
-  let totalAmount = totalAmountPerDay * diff;
+  let totalAmountPerDay = basicCost * costFactor;
+  let totalAmount = totalAmountPerDay * diff + additionalOccupancyCost * diff;
 
   const bookRoom = async () => {};
   const onToken = async (token) => {
@@ -36,10 +36,10 @@ const BookingPageComponent = ({ room }) => {
       roomid: room._id,
       userid: user._id,
       userName: user.name,
+      roomType: roomType,
       fromdate: dates[0].format("DD-MM-YYYY"),
       todate: dates[1].format("DD-MM-YYYY"),
       totalDays: diff,
-      roomType: roomType,
       additionalOccupancy: additionalOccupancy,
       totalAmount: totalAmount,
       transactionId: "",
@@ -160,9 +160,9 @@ const BookingPageComponent = ({ room }) => {
                           setAdditionalOccupancy(e.target.value);
                         }}
                       >
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value={0}>0</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
                       </select>
                     </p>
                   )}
@@ -178,12 +178,24 @@ const BookingPageComponent = ({ room }) => {
                     : ""}
                 </p>
                 <hr className="my-3" />
-                <p>Basic Cost per Day : {basicCost}</p>
+                <p>{/* Basic Cost per Day : {basicCost} */}</p>
                 Rate per Day : {totalAmountPerDay}
                 <p>
                   Cost for {diff} days : {totalAmountPerDay * diff}
                 </p>
-                <p>Additional Occupancy Cost : {additionalOccupancyCost}</p>
+                {additionalOccupancy > 0 && (
+                  <div>
+                    <p>
+                      Additional Occupancy Cost Per Day :{" "}
+                      {additionalOccupancyCost}
+                    </p>
+                    <p>
+                      Additional Occupancy Cost for {diff} Days :{" "}
+                      {additionalOccupancyCost * diff}
+                    </p>
+                  </div>
+                )}
+                <hr className="my-3" />
                 <p className="text-primary font-extrabold my-3">
                   Total Amount : {totalAmount}
                 </p>
