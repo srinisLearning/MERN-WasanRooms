@@ -28,7 +28,7 @@ const LoginFormComponent = () => {
   };
   const loginUser = async (e) => {
     e.preventDefault();
-    if (user.email !== "" && !user.password !== "") {
+    if (user.email !== "" && user.password !== "") {
       console.log(user);
       try {
         setLoading(true);

@@ -42,6 +42,20 @@ const RegisterFormComponent = () => {
   const registerUser = async (e) => {
     e.preventDefault();
     console.log(user);
+    if (
+      user.name === "" ||
+      user.email === "" ||
+      user.mobile === "" ||
+      user.password === "" ||
+      user.confirmPassword === ""
+    ) {
+      SWAL.fire({
+        title: "Error",
+        text: "Please enter all the fields",
+        icon: "error",
+      });
+      return;
+    }
     try {
       setLoading(true);
 

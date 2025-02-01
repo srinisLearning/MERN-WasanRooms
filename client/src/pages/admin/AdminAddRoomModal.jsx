@@ -33,22 +33,44 @@ const AdminAddRoomModal = ({ show, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-
-    try {
-      console.log(formData);
-      const response = await axios.post("/api/rooms/addRoom", formData);
-      console.log(response);
+    if (
+      formData.name === "" ||
+      formData.city === "" ||
+      formData.imageUrl === "" ||
+      formData.phoneNumber === 0 ||
+      formData.email === "" ||
+      formData.website === "" ||
+      formData.contactPerson === "" ||
+      formData.rentPerDay === 0 ||
+      formData.singleStandardFactor === 0 ||
+      formData.doubleStandardFactor === 0 ||
+      formData.doublePremiumFactor === 0 ||
+      formData.suiteFactor === 0 ||
+      formData.checkOutTime === "" ||
+      formData.description === ""
+    ) {
+      try {
+        console.log(formData);
+        const response = await axios.post("/api/rooms/addRoom", formData);
+        console.log(response);
+        SWAL.fire({
+          title: "Room Added",
+          text: "Room Added Successfully",
+          icon: "success",
+          timer: 2000,
+        }).then(() => {
+          document.location.reload();
+        });
+        onClose();
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
       SWAL.fire({
-        title: "Room Added",
-        text: "Room Added Successfully",
-        icon: "success",
-        timer: 2000,
-      }).then(() => {
-        document.location.reload();
+        title: "Error",
+        text: "Please enter all the fields",
+        icon: "error",
       });
-      onClose();
-    } catch (error) {
-      console.log(error);
     }
   };
 
@@ -66,7 +88,7 @@ const AdminAddRoomModal = ({ show, onClose }) => {
           <h3 className="text-primary text-center font-bold text-xl my-2">
             ADD ROOM
           </h3>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="flex  justify-between gap-6 items-center border-b-2 border-primary-200">
               <div className="flex flex-col gap-2">
                 {" "}
@@ -298,7 +320,7 @@ const AdminAddRoomModal = ({ show, onClose }) => {
             </div>
             <div className="flex m-2 justify-end items-baseline">
               <button
-                type="submit"
+                onClick={handleSubmit}
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2  rounded h-8 px-4 m-2"
               >
                 ADD ROOM
