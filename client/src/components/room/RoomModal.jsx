@@ -1,11 +1,18 @@
 import React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const RoomModal = ({ show, onClose, room }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center ">
-      <div className="bg-white rounded-lg shadow-xl p-6   max-w-screen-xl">
+    <div
+      className="fixed inset-0 bg-gray-300  flex justify-center items-center z-auto bg-opacity-60"
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+    >
+      <div className="bg-white rounded-lg shadow-xl p-6   max-w-2xl">
         <h2 className="text-lg   mb-4 text-center text-primary font-extrabold">
           {room.name}
         </h2>

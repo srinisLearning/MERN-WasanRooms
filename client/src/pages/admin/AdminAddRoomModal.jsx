@@ -28,26 +28,30 @@ const AdminAddRoomModal = ({ show, onClose }) => {
     console.log(formData.checkOutTime);
   };
 
-  console.log(FormData.checkOutTime);
+  //console.log(formData.checkOutTime);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
     if (
-      formData.name === "" ||
-      formData.city === "" ||
-      formData.imageUrl === "" ||
-      formData.phoneNumber === 0 ||
-      formData.email === "" ||
-      formData.website === "" ||
-      formData.contactPerson === "" ||
-      formData.rentPerDay === 0 ||
-      formData.singleStandardFactor === 0 ||
-      formData.doubleStandardFactor === 0 ||
-      formData.doublePremiumFactor === 0 ||
-      formData.suiteFactor === 0 ||
-      formData.checkOutTime === "" ||
-      formData.description === ""
+      formData.name !== "" &&
+      formData.city !== "" &&
+      formData.imageUrl !== "" &&
+      formData.phoneNumber !== "0" &&
+      formData.phoneNumber !== "" &&
+      formData.email !== "" &&
+      formData.website !== "" &&
+      formData.contactPerson !== "" &&
+      formData.rentPerDay !== "0" &&
+      formData.rentPerDay !== "" &&
+      formData.singleStandardFactor !== 0 &&
+      formData.singleStandardFactor !== "" &&
+      formData.doubleStandardFactor !== 0 &&
+      formData.doubleStandardFactor !== "" &&
+      formData.doublePremiumFactor !== 0 &&
+      formData.doublePremiumFactor !== "" &&
+      formData.suiteFactor !== 0 &&
+      (formData.checkOutTime !== "") & (formData.description !== "")
     ) {
       try {
         console.log(formData);
@@ -71,6 +75,7 @@ const AdminAddRoomModal = ({ show, onClose }) => {
         text: "Please enter all the fields",
         icon: "error",
       });
+      return;
     }
   };
 

@@ -78,8 +78,8 @@ const AdminBookingsPage = () => {
     <>
       <NavbarAdmin />
 
-      <h3 className="text-primary w-full text-center text-3xl font-thin py-2">
-        Booking Admin Page
+      <h3 className="text-primary w-full text-center text-2xl font-thin py-2">
+        BOOKING ADMIN PAGE
       </h3>
 
       <div>

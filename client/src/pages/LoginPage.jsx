@@ -8,9 +8,9 @@ const LoginPage = () => {
         Login Page
       </h3>
       <div className="max-w-md mx-auto mt-10"></div>
-      <div className="grid grid-rows-1 grid-cols-2 gap-4 border border-primary-300  p-4 my-11 shadow-xl max-w-4xl mx-auto rounded-xl">
+      <div className="grid grid-rows-1 grid-cols-2 gap-6 border space-y-9 border-primary-300  p-4 my-11 shadow-xl max-w-4xl mx-auto rounded-xl">
         <div>
-          <img src="images/register.png" className="h-full" />
+          <img src="images/register.png" />
         </div>
         <div>
           <LoginFormComponent />

@@ -3,6 +3,9 @@ import axios from "axios";
 import Room from "../components/room/Room";
 import LoadingComponent from "../components/utils/LoadingComponent";
 import ErrorComponent from "../components/utils/ErrorComponent";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const HomePage = () => {
   const [rooms, setRooms] = useState([]);

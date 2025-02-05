@@ -17,7 +17,7 @@ const ProfilePage = () => {
         Profile Page
       </h3>
       {user && (
-        <div class="flex flex-col justify-center mx-auto max-w-lg gap-6">
+        <div class="flex flex-col justify-center mx-auto max-w-lg gap-6 pb-60">
           <div className="flex flex-row gap-3 border border-primary-300  p-4 my-2 shadow-xl max-w-4xl mx-auto rounded-xl text-xs">
             <div>
               {" "}

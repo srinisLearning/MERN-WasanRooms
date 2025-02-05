@@ -78,7 +78,7 @@ const MyBookingsComponent = () => {
         My Bookings
       </h3>
       <div className="mx-auto">
-        <div className="grid grid-cols-2 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 max-w-4xl mx-auto pb-60">
           {mybookings.map((booking) => (
             <div className="m-4" key={booking._id}>
               <div className="bg-white shadow-md border border-primary rounded-lg p-4">

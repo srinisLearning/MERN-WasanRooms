@@ -55,7 +55,7 @@ const LoginFormComponent = () => {
     <>
       {loading && <LoadingComponent />}
 
-      <form className="mt-8 space-y-6">
+      <form className="mt-2 space-y-2 flex flex-col">
         <div>
           <label
             htmlFor="email"
@@ -67,6 +67,7 @@ const LoginFormComponent = () => {
             id="email"
             name="email"
             type="email"
+            placeholder="Enter your Email"
             value={user.email}
             onChange={handleChange}
             required
@@ -85,6 +86,7 @@ const LoginFormComponent = () => {
             id="password"
             name="password"
             type="password"
+            placeholder="Enter your Password"
             value={user.password}
             onChange={handleChange}
             required

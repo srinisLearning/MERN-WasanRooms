@@ -90,8 +90,8 @@ const AdminUserPage = () => {
     <>
       <NavbarAdmin />
       <div>
-        <h3 className="text-primary   w-full text-center text-3xl font-thin py-2">
-          User Admin Page
+        <h3 className="text-primary   w-full text-center text-2xl font-thin py-2">
+          USER ADMIN PAGE
         </h3>
         <div>
           {loading && <LoadingComponent />}

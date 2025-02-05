@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import RoomModal from "./RoomModal";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Room = ({ room }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

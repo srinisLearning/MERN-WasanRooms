@@ -4,6 +4,9 @@ import { DatePicker, Space } from "antd";
 import StripeCheckout from "react-stripe-checkout";
 const { RangePicker } = DatePicker;
 import moment from "moment";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -119,7 +122,11 @@ const BookingPageComponent = ({ room }) => {
   };
   return (
     <>
-      <div className="grid grid-rows-1 grid-cols-2 gap-4 border border-primary-300  p-4 my-2 shadow-xl max-w-4xl mx-auto rounded-xl">
+      <div
+        className="grid grid-rows-1 grid-cols-2 gap-4 border border-primary-300  p-4 my-2 shadow-xl max-w-4xl mx-auto rounded-xl"
+        data-aos="flip-down"
+        data-aos-duration="1500"
+      >
         <div>
           {/* {room.imageurls.length > 0 && <img src={room.imageurls[0]} />} */}
           <img src={room.imageUrl} />

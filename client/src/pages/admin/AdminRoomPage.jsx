@@ -91,8 +91,8 @@ const AdminBookingsPage = () => {
   return (
     <>
       <NavbarAdmin />
-      <h3 className="text-primary w-full text-center text-3xl font-thin py-2">
-        Rooms Admin Page
+      <h3 className="text-primary w-full text-center text-2xl font-thin py-2">
+        ROOMS ADMIN PAGE
       </h3>
       <div>
         {loading ? (

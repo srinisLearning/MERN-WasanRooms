@@ -6,11 +6,11 @@ const AdminEditRoomModal = ({ show, onClose, room }) => {
   //console.log("Room", room);
   const [formData, setFormData] = useState([room]);
 
-  useEffect(() => {
-    setFormData(room);
-  }, [room]);
-
   /*   useEffect(() => {
+    setFormData(room);
+  }, [room]); */
+
+  useEffect(() => {
     setFormData({
       name: room.name,
       city: room.city,
@@ -28,27 +28,54 @@ const AdminEditRoomModal = ({ show, onClose, room }) => {
       additionalOccupancyFactor: room.additionalOccupancyFactor,
       checkOutTime: room.checkOutTime,
     });
-  }, [room]); */
+  }, [room]);
   const handleUpdate = async () => {
-    try {
-      const response = await axios.put(
-        `/api/rooms/updateRoom/${room._id}`,
-        formData
-      );
-      console.log("Response", response);
-      response &&
-        SWAL.fire({
-          icon: "success",
-          title: "Room Updated",
-          text: "Room has been updated",
-        }).then((result) => {
-          document.location.reload();
-        });
-    } catch (error) {
-      console.log(error);
+    if (
+      formData.name !== "" &&
+      formData.city !== "" &&
+      formData.imageUrl !== "" &&
+      formData.phoneNumber !== "0" &&
+      formData.phoneNumber !== "" &&
+      formData.email !== "" &&
+      formData.website !== "" &&
+      formData.contactPerson !== "" &&
+      formData.rentPerDay !== "0" &&
+      formData.rentPerDay !== "" &&
+      formData.singleStandardFactor !== 0 &&
+      formData.singleStandardFactor !== "" &&
+      formData.doubleStandardFactor !== 0 &&
+      formData.doubleStandardFactor !== "" &&
+      formData.doublePremiumFactor !== 0 &&
+      formData.doublePremiumFactor !== "" &&
+      formData.suiteFactor !== 0 &&
+      (formData.checkOutTime !== "") & (formData.description !== "")
+    ) {
+      try {
+        const response = await axios.put(
+          `/api/rooms/updateRoom/${room._id}`,
+          formData
+        );
+        console.log("Response", response);
+        response &&
+          SWAL.fire({
+            icon: "success",
+            title: "Room Updated",
+            text: "Room has been updated",
+          }).then((result) => {
+            document.location.reload();
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      SWAL.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please fill all the fields",
+      });
+      return;
     }
   };
-
   // console.log("formData", formData);
 
   const handleChange = (e) => {
